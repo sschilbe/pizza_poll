@@ -17,5 +17,14 @@ def hello_world():
 @app.route('/pizza_poll', methods=['POST'] )
 def pizza_poll():
     app.logger.info("%s\n", request.form )
+    text = request.form["text"]
+    app.logger.info("%s\n", text )
+
+    customer = Customer( text.split("\"")[1] )
+    address = text.split("\"")[3]
+    store = address.closest_store()
+    menu = store.get_menu()
+    menu.search(Name='Coke')
+    
     return jsonify( {   "response_type": "in_channel",
                         "text": "test" } )
