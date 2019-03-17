@@ -1,0 +1,2 @@
+gunicorn==19.9.0
+pizzapi==0.0.4
