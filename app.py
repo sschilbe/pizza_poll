@@ -11,4 +11,4 @@ def hello_world():
 
 @app.route('/pizza_poll', methods=['POST'] )
 def pizza_poll():
-    return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
+    return json.dumps({"text": "Would you like to play a game?"}), 200, {'ContentType':'application/json'} 
