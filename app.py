@@ -20,8 +20,8 @@ def pizza_poll():
     text = request.form["text"]
     app.logger.info("%s\n", text )
 
-    customer = Customer( *text.split("\"")[1] )
-    address = Address( *text.split("\"")[3] )
+    customer = Customer('Donald', 'Trump', 'donald@whitehouse.gov', '2024561111')
+    address = Address('677 McLeod Avenue', 'Fredericton', 'NB', 'E3B0V7')
     store = address.closest_store()
     menu = store.get_menu()
     menu.search(Name='Coke')
