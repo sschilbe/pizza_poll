@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, jsonify
 import json
-from pizzapi import *
+from pizzapi/pizzapi import *
 import sys
 import logging
 
@@ -21,10 +21,10 @@ def pizza_poll():
     app.logger.info("%s\n", text )
 
     customer = Customer( text.split("\"")[1] )
-    address = text.split("\"")[3]
+    address = Address( text.split("\"")[3] )
     store = address.closest_store()
     menu = store.get_menu()
     menu.search(Name='Coke')
-    
+
     return jsonify( {   "response_type": "in_channel",
                         "text": "test" } )

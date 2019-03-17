@@ -1,0 +1,5 @@
+pizzapi.egg-info/PKG-INFO
+pizzapi.egg-info/SOURCES.txt
+pizzapi.egg-info/dependency_links.txt
+pizzapi.egg-info/requires.txt
+pizzapi.egg-info/top_level.txt
