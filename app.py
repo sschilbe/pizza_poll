@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, jsonify
 import json
-from pizzapi/pizzapi import *
+from pizzapi import *
 import sys
 import logging
 
