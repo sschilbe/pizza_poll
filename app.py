@@ -1,9 +1,14 @@
-from flask import Flask, render_template, request, send_from_directory  
+from flask import Flask, render_template, request, send_from_directory, jsonify
 import json
 from pizzapi import *
+import sys
+import logging
 
 # Initialize Flask Application
 app = Flask(__name__)
+gunicorn_logger = logging.getLogger('gunicorn.error')
+app.logger.handlers = gunicorn_logger.handlers
+app.logger.setLevel(gunicorn_logger.level)
 
 @app.route('/')
 def hello_world():
@@ -11,4 +16,6 @@ def hello_world():
 
 @app.route('/pizza_poll', methods=['POST'] )
 def pizza_poll():
-    return json.dumps({"text": "Would you like to play a game?"}), 200, {'ContentType':'application/json'} 
+    app.logger.info("%s\n", request.form )
+    return jsonify( {   "response_type": "in_channel",
+                        "text": "test" } )
